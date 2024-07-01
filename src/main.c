@@ -20,13 +20,12 @@ init(void) {
                 "saper", 
                 SDL_WINDOWPOS_CENTERED,
                 SDL_WINDOWPOS_CENTERED,
-                1024, 1024, 0
+                848, 1008, 0
         );
         assert(ctx->window);
         assert(!Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 1024));
         ctx->renderer = SDL_CreateRenderer(ctx->window, -1, 0);
         SDL_RenderSetScale(ctx->renderer, 4, 4);
-        SDL_RenderSetLogicalSize(ctx->renderer, 1024 / 4, 1024 / 4);
         ctx->close_window = false;
         ctx->arg_board_w = 5;
         ctx->arg_board_h = 5;
@@ -52,7 +51,7 @@ loop(SContext* ctx) {
         if (rmb_pressed()) mouse_field_inter(true);
         SDL_SetRenderDrawColor(ctx->renderer, 20, 0, 60, 255);
         SDL_RenderClear(ctx->renderer);
-        draw_board(ctx->renderer);
+        draw_board(ctx);
         SDL_RenderPresent(ctx->renderer);
 }
 

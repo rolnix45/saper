@@ -28,7 +28,9 @@ typedef struct {
 
 void load_textures(SDL_Renderer* renderer);
 void switch_texture(void);
-Field* create_field(int x, int y);
+Field* create_field(int x, int y, 
+        int board_w, int board_h, 
+        int new_w, int new_h);
 void draw_field(SDL_Renderer* renderer, Field* field);
 void destroy_field(Field* field);
 

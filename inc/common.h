@@ -4,6 +4,12 @@
 #include <SDL2/SDL.h>
 #include <stdbool.h>
 
+#define FIELD_SIZE 10
+#define RENDER_SCALE 4
+#define MAX_FIELD 24
+#define X_FIELD_OFFSET 10
+#define Y_FIELD_OFFSET 50
+
 typedef struct {
         SDL_Window* window;
         SDL_Renderer* renderer;

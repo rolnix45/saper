@@ -63,13 +63,15 @@ set_texture(int num) {
 }
 
 Field* 
-create_field(int x, int y) {
+create_field(int x, int y, int board_w, int board_h, int scr_w, int scr_h) {
         Field* field = malloc(sizeof(Field));
         field->rect = malloc(sizeof(SDL_Rect));
-        field->rect->w = 20;
-        field->rect->h = 20;
-        field->rect->x = field->rect->w * x + 10;
-        field->rect->y = field->rect->h * y + 50;
+        //int space = (scr_w / board_w) - (X_FIELD_OFFSET * 2);
+        //printf("%d\n", space);
+        field->rect->w = FIELD_SIZE;
+        field->rect->h = field->rect->w;
+        field->rect->x = field->rect->w * x + X_FIELD_OFFSET;
+        field->rect->y = field->rect->h * y + Y_FIELD_OFFSET;
         field->type = Empty;
         field->is_hidden = true;
         field->is_flagged = false;
